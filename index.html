@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dead Drop</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <a href="test.html" data-drop="bar">Bar</a>
+        <a href="test.html" data-drop="foo">Foo</a>
+
+        <a href="test.html" id="no-data">No Data API</a>
+    </body>
+    <script src="js/deaddrop.js"></script>
+    <script>
+        console.log(window.DD.package);
+
+        var tester = document.getElementById("no-data");
+        tester.addEventListener("click", function(e) {
+            console.log("hey!");
+            var pkg = {
+                foo : "what",
+                bar : "who"
+            }
+            window.DD.drop(this, pkg);
+        });
+    </script>
+</html>

@@ -5,7 +5,7 @@ Dead Drop.js
 Dead Drop is a simple, lightweight javascript library for passing variables between discrete pages of a website without server-side code or polluting URLs. It has two main actions right now: dropping and stashing.
 
 ### Dropping
-Drops are a quick-n-dirty way to pass data from one page to another. Drops are stored in local storage temporarily during page load, but once they have been retrieved on the destination URL they will be removed from local storage automatically. Currently dropped data does not persist on page refresh, which is a problem that I need to fix. You can drop data two ways: through the data API or programatically.
+Drops are a quick-n-dirty way to pass data from one page to another. Drops are stored in local storage temporarily during page load, but once they have been retrieved on the destination URL they will be removed from local storage automatically. Currently, dropped data does not persist on page refresh, which is a problem that I need to fix. You can drop data two ways: through the data API or programatically.
 
 #### Data API
 Drops can be sent between pages by adding a `data-drop` attribute to any `<a>` tag. The value of the `data-drop` attribute will be saved in local storage with a key corresponding to the href of the `<a>` tag when the link is clicked.

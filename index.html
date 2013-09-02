@@ -9,8 +9,13 @@
     <body>
         <a href="test.html" data-drop="bar">Bar</a>
         <a href="test.html" data-drop="foo">Foo</a>
+        <a href="test.html">Stash</a>
 
         <a href="test.html" id="no-data">No Data API</a>
+        <a href="#" id="purger">Purge</a>
+
+        <input type="text" id="stash-input" />
+        <a href="#" id="stasher">Stash</a>
     </body>
     <script src="js/deaddrop.js"></script>
     <script>
@@ -25,5 +30,24 @@
             }
             window.DD.drop(this, pkg);
         });
+
+        var stasher = document.getElementById("stasher");
+        var stashCount = 0;
+        stasher.addEventListener("click", function(e) {
+            e.preventDefault();
+            var val = document.getElementById("stash-input").value;
+            var key = "stash-" + stashCount;
+            var toStash = {};
+            toStash[key] = val;
+            window.DD.appendStash(toStash);
+            console.log(window.DD.findStash());
+            stashCount += 1;
+        });
+
+        var purger = document.getElementById("purger");
+        purger.addEventListener("click", function(e) {
+            e.preventDefault();
+            window.DD.purge();
+        })
     </script>
 </html>
